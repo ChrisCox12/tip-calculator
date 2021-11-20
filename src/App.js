@@ -1,39 +1,53 @@
-import logo from './logo.svg';
+import logo from './assets/logo.svg';
+import dollar from './assets/icon-dollar.svg';
+import person from './assets/icon-person.svg';
 import './App.css';
+
 
 function App() {
   return (
     <div className="App">
+      <div className="App__logo"><img src={logo} alt="The logo for the app, Spliter" /></div>
       <div className="calculator">
-        <div class="calculator__bill">
-          <label for="bill">Bill</label>
+        <div className="calculator__bill">
+          <label htmlFor="bill">Bill</label> <br />
           {/* step property below allows for decimals to be considered valid */}
           <input type="number" name="bill" id="bill" min="0" placeholder="0" step="0.01" />
+          <div className="input-icon icon--dollar">
+            <img src={dollar} alt="Icon of a dollar sign" />
+          </div>
         </div>
 
-        <div class="calculator__tip-selection grid">
-          <label for="custom">Select Tip %</label>
-          <div class="btn btn--tip">5%</div>
-          <div class="btn btn--tip">10%</div>
-          <div class="btn btn--tip">15%</div>
-          <div class="btn btn--tip">25%</div>
-          <div class="btn btn--tip">50%</div>
-          <input type="number" name="custom" id="custom" placeholder="Custom" />
+        <div className="calculator__tip-selection">
+          <label htmlFor="custom">Select Tip %</label> <br />
+          <div className="tip-selections grid grid--tip">
+            <div className="btn btn--tip unselected">5%</div>
+            <div className="btn btn--tip unselected">10%</div>
+            <div className="btn btn--tip unselected">15%</div>
+            <div className="btn btn--tip unselected">25%</div>
+            <div className="btn btn--tip unselected">50%</div>
+            <input type="number" name="custom" id="custom" placeholder="Custom" />
+          </div>
         </div>
 
-        <div class="calculator__people">
-          <label for="numPeople">Number of People</label>
+        <div className="calculator__people">
+          <label htmlFor="numPeople">Number of People</label> <br />
           <input type="number" name="numPeople" id="numPeople" placeholder="0" />
+          <div className="input-icon icon--person">
+            <img src={person} alt="Icon of a person" />
+          </div>
         </div>
 
-        <div class="calculator__results grid">
-          <p>Tip Amount <br /> / person</p>
-          <div class="tip-amount"></div>
+        <div className="calculator__results">
+          <div className="tip-results grid grid--results">
+            <p>Tip Amount <br /> / person</p>
+            <div className="tip-amount"></div>
+            
+            <p>Total <br /> / person</p>
+            <div className="total-amount"></div>
+          </div>
           
-          <p>Total <br /> / person</p>
-          <div class="total-amount"></div>
-          
-          <div class="btn btn--reset">Reset</div>
+          <div className="btn btn--reset">Reset</div>
         </div>
       </div>
     </div>
