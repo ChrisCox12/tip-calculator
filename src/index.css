@@ -6,6 +6,10 @@
   --primary-background: hsl(185, 41%, 84%);
   --accent-background: hsl(189, 41%, 97%);
   --secondary-background: hsl(0, 0%, 100%);
+  --white: hsl(0, 0%, 100%);
+
+  --ft-bold: 700;
+  --ft-regular: 400;
 }
 
 *, *::before, *::after {

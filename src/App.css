@@ -1,20 +1,29 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .App__logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
 }
 
 .btn {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: var(--ft-bold);
   border-radius: 5px;
+  font-size: 18px;
 }
 
 .btn--reset {
   background-color: var(--primary-cyan);
   color: var(--secondary-cyan);
+  text-transform: uppercase;
 }
 
 .btn--tip {
@@ -22,15 +31,15 @@
 }
 
 .calculator {
+  display: flex;
   background-color: var(--secondary-background);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  padding: 1.5rem;
 }
 
-.calculator__bill, .calculator__tip-selection, .calculator__people {
+/* .calculator__bill, .calculator__tip-selection, .calculator__people {
   margin-bottom: 2rem;
-}
+} */
 
 .calculator__bill, .calculator__people {
   position: relative;
@@ -39,21 +48,29 @@
 .calculator__results {
   background-color: var(--secondary-cyan);
   border-radius: 10px;
-  padding: 1.75rem 1rem 1rem;
 }
 
 input {
   background-color: var(--accent-background);
   text-align: end;
-  height: 2rem;
-  padding: 0 1rem;
-  width: 100%;
   border-style: none;
+  width: 100%;
   border-radius: 5px;
 }
 
-input[name="bill"], input[name="numPeople"] {
+/* input[name="bill"], input[name="numPeople"] {
   margin-top: 5px;
+} */
+
+input[name="custom"] {
+  font-weight: var(--ft-bold);
+}
+
+input[type="number"] {
+  font-family: "Space Mono", monospace;
+  font-weight: var(--ft-bold);
+  color: var(--secondary-cyan);
+  font-size: 24px;
 }
 
 .input-icon {
@@ -69,21 +86,27 @@ input[name="bill"], input[name="numPeople"] {
 
 .grid--results {
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 2rem);
-  column-gap: 10px;
-  row-gap: 10px;
-  margin-bottom: 3rem;
 }
 
 .grid--tip {
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 2rem);
-  column-gap: 10px;
-  row-gap: 10px;
+  column-gap: 16px;
+  row-gap: 20px;
 }
 
 label {
   color: var(--primary-text-color);
+  font-weight: var(--ft-bold);
+}
+
+p span {
+  color: var(--white);
+  font-size: 14px;
+}
+
+.tip-results p {
+  font-size: 12px;
+  color: var(--secondary-text-color);
+  font-weight: var(--ft-bold);
 }
 
 .tip-selections {
@@ -92,6 +115,79 @@ label {
 
 .unselected {
   color: var(--secondary-background);
+}
+
+
+@media screen and (min-width: 375px) {
+  .App__logo {
+    padding: 2rem;
+  }
+
+  .btn {
+    height: 2.5rem;
+  }
+
+  .calculator {
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  .calculator__bill, .calculator__tip-selection, .calculator__people {
+    margin-bottom: 2rem;
+  }
+
+  .calculator__results {
+    padding: 2rem 1.5rem 1.5rem;
+  }
+
+  input {
+    height: 2.125rem;
+    padding: 0 1rem;
+  }
+
+  input[name="bill"], input[name="numPeople"] {
+    margin-top: 5px;
+  }
+
+  .grid--results {
+    grid-template-rows: repeat(2, 2rem);
+    column-gap: 10px;
+    row-gap: 10px;
+    margin-bottom: 3rem;
+  }
+
+  .grid--tip {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 2rem);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .calculator {
+    width: 70%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .calculator {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .calculator__inputs {
+    width: 48%;
+  }
+
+  .calculator__outputs {
+    width: 48%;
+    min-height: 100%;
+  }
+
+  .calculator__results {
+    min-height: 100%;
+  }
 }
 /* 
 .App {
