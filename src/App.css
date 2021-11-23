@@ -50,6 +50,10 @@
   border-radius: 10px;
 }
 
+.flex {
+  display: flex;
+}
+
 input {
   background-color: var(--accent-background);
   text-align: end;
@@ -98,9 +102,25 @@ label {
   font-weight: var(--ft-bold);
 }
 
+.noshow {
+  display: none;
+}
+
 p span {
   color: var(--white);
   font-size: 14px;
+}
+
+.s-b {
+  justify-content: space-between;
+}
+
+.show {
+  display: block;
+}
+
+.tip-amount, .total-amount {
+  color: var(--primary-cyan);
 }
 
 .tip-results p {
@@ -115,6 +135,10 @@ p span {
 
 .unselected {
   color: var(--secondary-background);
+}
+
+.zero-error {
+  color: red;
 }
 
 
