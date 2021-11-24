@@ -18,27 +18,32 @@ function App() {
   }
 
   function setTip_5() {
-    setTipAmount(0.05);
+    /* setTipAmount(0.05); */
+    setTipAmount(5);
   }
 
   function setTip_10() {
-    setTipAmount(0.10);
+    /* setTipAmount(0.10); */
+    setTipAmount(10);
   }
 
   function setTip_15() {
-    setTipAmount(0.15);
+    /* setTipAmount(0.15); */
+    setTipAmount(15);
   }
 
   function setTip_25() {
-    setTipAmount(0.25);
+    /* setTipAmount(0.25); */
+    setTipAmount(25);
   }
 
   function setTip_50() {
-    setTipAmount(0.50);
+    /* setTipAmount(0.50); */
+    setTipAmount(50);
   }
 
   function setTip_Custom(event) {
-    setTipAmount(event.target.value);
+    setTipAmount( parseInt(event.target.value, 10) );
   }
 
   function setPeople(event) {
@@ -67,8 +72,13 @@ function App() {
       error.classList.add("show");
     }
     else {
-      let tip = (bill_amount * tip_amount) / num_people;
-      let total = ((bill_amount * tip_amount) + bill_amount) / num_people;
+      let error = document.getElementById("zero-error");
+
+      error.classList.remove("show");
+      error.classList.add("noshow");
+
+      let tip = (bill_amount * (tip_amount / 100)) / num_people;
+      let total = ((bill_amount * (tip_amount / 100)) + bill_amount) / num_people;
 
       /* let string = "Bill: " + bill_amount + "\nTip Amount: " + tip_amount + "\nPeople: " + num_people + "\nTip / person: " + tip_per_person + "\nTotal / person: " + total_per_person;
       console.log(string);
@@ -102,7 +112,7 @@ function App() {
               <div className="btn btn--tip unselected" onClick={setTip_15}>15%</div>
               <div className="btn btn--tip unselected" onClick={setTip_25}>25%</div>
               <div className="btn btn--tip unselected" onClick={setTip_50}>50%</div>
-              <input type="number" name="custom" id="custom" value={tip_amount} onChange={setTip_Custom} placeholder="Custom" />
+              <input type="number" name="custom" id="custom" value={tip_amount} onChange={setTip_Custom} placeholder="Custom" min="0" max="100" />
               {/* <h3>{tip_amount}</h3>
               <h3>Tip: ({bill_amount} * {tip_amount}) / {num_people}</h3>
               <h3>TOtal: (({bill_amount} * {tip_amount}) + {bill_amount}) / {num_people}</h3> */}
@@ -114,7 +124,7 @@ function App() {
               <p className="zero-error noshow" id="zero-error">Can't be zero</p>
             </div>
             <br />
-            <input type="number" name="numPeople" id="numPeople" value={num_people} onChange={setPeople} placeholder="0" />
+            <input type="number" name="numPeople" id="numPeople" value={num_people} onChange={setPeople} placeholder="Custom" min="0" />
             <div className="input-icon icon--person">
               <img src={person} alt="Icon of a person" />
             </div>
